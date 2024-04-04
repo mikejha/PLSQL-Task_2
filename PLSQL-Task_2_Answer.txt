@@ -1,0 +1,81 @@
+create or replace function M_MJ(p_no_of_coach in NUMBER) return varchar2 is
+  finalresult varchar2(200);
+  v_noofseatsfor_SN number:=0;
+  v_noofseatsfor_LS number:=0;
+  v_noofseatsfor_NP number:=0;
+  v_noofseats_TL    number:=0;
+  
+begin
+       -- 1st:With the help of loop start:
+  for i in 1..p_no_of_coach loop
+    v_noofseatsfor_SN := v_noofseatsfor_SN+4+2+2+2+4; -- total no of seats for senior citizen in single coach,as per logic present in the question.
+    v_noofseatsfor_LS := v_noofseatsfor_LS+2+2+2;     -- total no of seats for Ladies in single coach,as per logic present in the question.
+    v_noofseatsfor_NP := v_noofseatsfor_NP+10+10+10;  -- total no of seats for Normal person in single coach,as per logic present in the question. 
+    v_noofseats_TL:= v_noofseatsfor_SN+v_noofseatsfor_LS+v_noofseatsfor_NP; -- total no of seats in single coach.
+  end loop;
+      --With the help of loop ends
+  /*  --2nd:With the help of unity method start:
+    v_noofseatsfor_SN := (4+2+2+2+4)*p_no_of_coach; -- total no of seats for senior citizen in single coach,as per logic present in the question.
+    v_noofseatsfor_LS := (2+2+2)*p_no_of_coach;     -- total no of seats for Ladies in single coach,as per logic present in the question.
+    v_noofseatsfor_NP := (10+10+10)*p_no_of_coach;  -- total no of seats for Normal person in single coach,as per logic present in the question. 
+    v_noofseats_TL:= v_noofseatsfor_SN+v_noofseatsfor_LS+v_noofseatsfor_NP; -- total no of seats in single coach.
+  */  --With the help of unity method ends
+  
+         finalresult:='No of seats for sen citizen: '||v_noofseatsfor_SN||
+                      ' No of seats for ladies: '||v_noofseatsfor_LS||  
+                      ' No of seats for normal passengers: '||v_noofseatsfor_NP||   
+                      ' No of over all seats: '||v_noofseats_TL;
+  return(finalresult);
+end M_MJ;
+/* Requirement:
+If a single coach of metro is having
+2+2 = 4 senior citizen
+7+7 = 14, in 14, 2 sen citizen, 2 ladies
+7+7 = 14, in 14, 2 sen citizen, 2 ladies
+7+7 = 14, in 14, 2 sen citizen, 2 ladies
+2+2 = 4 senior citizen
+,
+Over all single coach is having 50 seats, divided as above given,
+ 
+So create a function in which coach is input parameter
+and
+No of seats for sen citizen.
+No of seats for ladies.
+No of seats for normal passengers.
+No of over all seats.
+ 
+Will be the output of that function.
+*/
+--By Declaration method starts------
+/* --remove comment here.
+declare 
+p_no_of_coach number:= 5;
+v_noofseatsfor_SN number:=0;
+v_noofseatsfor_LS number:=0;
+v_noofseatsfor_NP number:=0;
+v_noofseats_TL    number:=0;
+begin
+    -- 1st:With the help of loop start:
+  for i in 1..p_no_of_coach loop
+    v_noofseatsfor_SN := v_noofseatsfor_SN+4+2+2+2+4; -- total no of seats for senior citizen in single coach,as per logic present in the question.
+    v_noofseatsfor_LS := v_noofseatsfor_LS+2+2+2;     -- total no of seats for Ladies in single coach,as per logic present in the question.
+    v_noofseatsfor_NP := v_noofseatsfor_NP+10+10+10;  -- total no of seats for Normal person in single coach,as per logic present in the question. 
+    v_noofseats_TL:= v_noofseatsfor_SN+v_noofseatsfor_LS+v_noofseatsfor_NP; -- total no of seats in single coach.
+  end loop;
+    --With the help of loop ends
+    --2nd:With the help of unity method start:
+    v_noofseatsfor_SN := (4+2+2+2+4)*p_no_of_coach; -- total no of seats for senior citizen in single coach,as per logic present in the question.
+    v_noofseatsfor_LS := (2+2+2)*p_no_of_coach;     -- total no of seats for Ladies in single coach,as per logic present in the question.
+    v_noofseatsfor_NP := (10+10+10)*p_no_of_coach;  -- total no of seats for Normal person in single coach,as per logic present in the question. 
+    v_noofseats_TL:= v_noofseatsfor_SN+v_noofseatsfor_LS+v_noofseatsfor_NP; -- total no of seats in single coach.
+    --With the help of unity method ends
+  
+ dbms_output.put_line('No of seats for sen citizen: '||v_noofseatsfor_SN||
+                      ' No of seats for ladies: '||v_noofseatsfor_LS||  
+                      ' No of seats for normal passengers: '||v_noofseatsfor_NP||   
+                      ' No of over all seats: '||v_noofseats_TL );
+end; 
+*/ --remove comment here
+----Declaration method ends----
+
+  

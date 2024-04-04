@@ -1,0 +1,19 @@
+If a single coach of metro is having
+
+2+2 = 4 senior citizen
+7+7 = 14, in 14, 2 sen citizen, 2 ladies
+7+7 = 14, in 14, 2 sen citizen, 2 ladies
+7+7 = 14, in 14, 2 sen citizen, 2 ladies
+2+2 = 4 senior citizen
+,
+Over all single coach is having 50 seats, divided as above given,
+ 
+So create a function in which 
+No of coach is input parameter
+and
+No of seats for sen citizen,
+No of seats for ladies,
+No of seats for normal passengers,
+No of over all seats
+ 
+will be the output of that function.
